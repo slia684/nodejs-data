@@ -1,89 +1,94 @@
 {
-  "taskDefinitionArn": "arn:aws:ecs:ap-southeast-2:084375542647:task-definition/nodejs-data-td:1",
-  "containerDefinitions": [
-      {
-          "name": "nodejs-data-container",
-          "image": "084375542647.dkr.ecr.ap-southeast-2.amazonaws.com/nodejs-ecr-image",
-          "cpu": 0,
-          "portMappings": [
-              {
-                  "name": "port-5000",
-                  "containerPort": 5000,
-                  "hostPort": 5000,
-                  "protocol": "tcp",
-                  "appProtocol": "http"
-              }
-          ],
-          "essential": true,
-          "environment": [],
-          "environmentFiles": [],
-          "mountPoints": [],
-          "volumesFrom": [],
-          "ulimits": [],
-          "logConfiguration": {
-              "logDriver": "awslogs",
-              "options": {
-                  "awslogs-group": "/ecs/nodejs-data-td",
-                  "mode": "non-blocking",
-                  "awslogs-create-group": "true",
-                  "max-buffer-size": "25m",
-                  "awslogs-region": "ap-southeast-2",
-                  "awslogs-stream-prefix": "ecs"
-              },
-              "secretOptions": []
-          },
-          "systemControls": []
-      }
-  ],
-  "family": "nodejs-data-td",
-  "taskRoleArn": "arn:aws:iam::084375542647:role/ecsTaskExecutionRole",
-  "executionRoleArn": "arn:aws:iam::084375542647:role/ecsTaskExecutionRole",
-  "revision": 1,
-  "volumes": [],
-  "status": "ACTIVE",
-  "requiresAttributes": [
-      {
-          "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
-      },
-      {
-          "name": "ecs.capability.execution-role-awslogs"
-      },
-      {
-          "name": "com.amazonaws.ecs.capability.ecr-auth"
-      },
-      {
-          "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
-      },
-      {
-          "name": "com.amazonaws.ecs.capability.docker-remote-api.1.28"
-      },
-      {
-          "name": "com.amazonaws.ecs.capability.task-iam-role"
-      },
-      {
-          "name": "ecs.capability.execution-role-ecr-pull"
-      },
-      {
-          "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
-      },
-      {
-          "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
-      }
-  ],
-  "placementConstraints": [],
-  "compatibilities": [
-      "EC2"
-  ],
-  "requiresCompatibilities": [
-      "EC2"
-  ],
-  "cpu": "512",
-  "memory": "2048",
-  "runtimePlatform": {
-      "cpuArchitecture": "X86_64",
-      "operatingSystemFamily": "LINUX"
-  },
-  "registeredAt": "2024-12-02T10:12:36.849Z",
-  "registeredBy": "arn:aws:iam::084375542647:root",
-  "tags": []
+    "taskDefinitionArn": "arn:aws:ecs:ap-southeast-2:084375542647:task-definition/nodejs-data-task-def:1",
+    "containerDefinitions": [
+        {
+            "name": "nodejs-data-ecr",
+            "image": "084375542647.dkr.ecr.ap-southeast-2.amazonaws.com/nodejs-data-ecr",
+            "cpu": 0,
+            "portMappings": [
+                {
+                    "name": "nodejs-data-ecr-5000-tcp",
+                    "containerPort": 5000,
+                    "hostPort": 5000,
+                    "protocol": "tcp",
+                    "appProtocol": "http"
+                }
+            ],
+            "essential": true,
+            "environment": [],
+            "environmentFiles": [],
+            "mountPoints": [],
+            "volumesFrom": [],
+            "ulimits": [],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-group": "/ecs/nodejs-data-task-def",
+                    "mode": "non-blocking",
+                    "awslogs-create-group": "true",
+                    "max-buffer-size": "25m",
+                    "awslogs-region": "ap-southeast-2",
+                    "awslogs-stream-prefix": "ecs"
+                },
+                "secretOptions": []
+            },
+            "systemControls": []
+        }
+    ],
+    "family": "nodejs-data-task-def",
+    "taskRoleArn": "arn:aws:iam::084375542647:role/ecsTaskExecutionRole",
+    "executionRoleArn": "arn:aws:iam::084375542647:role/ecsTaskExecutionRole",
+    "networkMode": "awsvpc",
+    "revision": 1,
+    "volumes": [],
+    "status": "ACTIVE",
+    "requiresAttributes": [
+        {
+            "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+        },
+        {
+            "name": "ecs.capability.execution-role-awslogs"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.ecr-auth"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.28"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.task-iam-role"
+        },
+        {
+            "name": "ecs.capability.execution-role-ecr-pull"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+        },
+        {
+            "name": "ecs.capability.task-eni"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
+        }
+    ],
+    "placementConstraints": [],
+    "compatibilities": [
+        "EC2",
+        "FARGATE"
+    ],
+    "requiresCompatibilities": [
+        "EC2"
+    ],
+    "cpu": "1024",
+    "memory": "3072",
+    "runtimePlatform": {
+        "cpuArchitecture": "X86_64",
+        "operatingSystemFamily": "LINUX"
+    },
+    "registeredAt": "2024-12-02T11:04:40.666Z",
+    "registeredBy": "arn:aws:iam::084375542647:root",
+    "tags": []
 }
