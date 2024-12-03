@@ -1,5 +1,5 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:ap-southeast-2:084375542647:task-definition/nodejs-data-task-def:1",
+    "taskDefinitionArn": "arn:aws:ecs:ap-southeast-2:084375542647:task-definition/nodejs-data-task-def:3",
     "containerDefinitions": [
         {
             "name": "nodejs-data-ecr",
@@ -7,7 +7,7 @@
             "cpu": 0,
             "portMappings": [
                 {
-                    "name": "nodejs-data-ecr-5000-tcp",
+                    "name": "port-5000",
                     "containerPort": 5000,
                     "hostPort": 5000,
                     "protocol": "tcp",
@@ -39,7 +39,7 @@
     "taskRoleArn": "arn:aws:iam::084375542647:role/ecsTaskExecutionRole",
     "executionRoleArn": "arn:aws:iam::084375542647:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
-    "revision": 1,
+    "revision": 3,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
@@ -80,7 +80,7 @@
         "FARGATE"
     ],
     "requiresCompatibilities": [
-        "EC2"
+        "FARGATE"
     ],
     "cpu": "1024",
     "memory": "3072",
@@ -88,7 +88,7 @@
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2024-12-02T11:04:40.666Z",
+    "registeredAt": "2024-12-03T01:51:04.161Z",
     "registeredBy": "arn:aws:iam::084375542647:root",
     "tags": []
 }
